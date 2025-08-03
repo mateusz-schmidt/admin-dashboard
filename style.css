@@ -1,6 +1,8 @@
 /* //general */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -12,7 +14,7 @@
 
 body {
   height: 100vh;
-  font-family: monospace ;
+  font-family: monospace;
   display: grid;
   grid-template: minmax(0, 1fr) minmax(0, 4fr) / 1fr 5fr;
 }
@@ -29,6 +31,16 @@ svg {
   vertical-align: -0.125em;
 }
 
+a {
+  all: unset;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
 /* //nav */
 
 nav {
@@ -60,21 +72,18 @@ nav li {
   font-size: 1.2rem;
 }
 
-
-
 /* //header */
 
 header {
   display: grid;
-  grid-template: 1fr 1fr/ 2fr 1fr;
-  
+  grid-template: minmax(0, 1fr) minmax(0, 1fr) / 2fr 1fr;
 }
 
 header > * {
   padding: 20px;
-  min-height: 0;
   display: flex;
   align-items: center;
+  max-height: 100%;
 }
 
 header > :nth-child(even) {
@@ -86,7 +95,7 @@ header label {
 }
 
 input {
-  width: 80%;
+  width: 100%;
   outline: none;
   border-radius: 20px;
   border: none;
@@ -95,8 +104,19 @@ input {
   height: 30px;
 }
 
+header ul {
+  gap: 10px;
+}
+
+header li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: end;
+}
+
 header .avatar {
-  max-height: 100%;
+  height: 100%;
   border-radius: 50%;
 }
 
@@ -111,15 +131,61 @@ header .avatar {
   font-weight: bold;
 }
 
+header > :nth-child(4) li {
+  background-color: rgb(78, 189, 253);
+  flex: 1;
+  justify-content: center;
+  border-radius: 20px;
+  height: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
 /* //main */
 
 main {
   background-color: rgb(230, 230, 230);
   display: flex;
+  padding: 20px;
 }
 
 main > section {
   flex: 3;
+}
+
+.projects {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+  height: 100%;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  height: 100%;
+  border-radius: 10px;
+  border-left: 10px solid rgb(250, 199, 58);
+  min-width: 0;
+}
+
+.project p {
+  overflow: hidden;
+}
+
+.project-icons {
+  display: flex;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.project-icons svg {
+  height: 30px;
 }
 
 aside {
@@ -135,5 +201,3 @@ aside {
 .trending {
   flex: 1;
 }
-
-
